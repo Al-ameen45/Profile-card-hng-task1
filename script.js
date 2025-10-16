@@ -14,6 +14,27 @@ const avatarControls = document.getElementById("avatar-controls");
 const editBtn = document.getElementById("edit-avatar-btn");
 const altTextFallback = document.querySelector(".alt-text-fallback");
 
+// Function to update avatar with a URL
+function updateAvatarURL(url) {
+  if (url) {
+    showImage();
+    avatarImg.src = url;
+    console.log("Avatar updated with URL:", url); // For debugging/verification
+    // Close avatar controls after update
+    avatarControls.classList.add("hidden");
+  }
+}
+
+// Function to convert file to data URL (base64)
+function convertFileToDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 // Function to show image and hide fallback
 function showImage() {
   avatarImg.style.display = "block";
@@ -43,10 +64,7 @@ editBtn.addEventListener("click", () => {
 avatarURLInput.addEventListener("change", () => {
   const url = avatarURLInput.value.trim();
   if (url) {
-    showImage(); // Ensure image is visible
-    avatarImg.src = url;
-    // Close avatar controls after URL is applied
-    avatarControls.classList.add("hidden");
+    updateAvatarURL(url);
     avatarURLInput.value = ""; // Clear the input
   }
 });
@@ -56,24 +74,31 @@ avatarURLInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     const url = avatarURLInput.value.trim();
     if (url) {
-      showImage(); // Ensure image is visible
-      avatarImg.src = url;
-      // Close avatar controls after URL is applied
-      avatarControls.classList.add("hidden");
+      updateAvatarURL(url);
       avatarURLInput.value = ""; // Clear the input
     }
   }
 });
 
-// When user uploads an image
-avatarUpload.addEventListener("change", (event) => {
+// When user uploads an image - convert to data URL
+avatarUpload.addEventListener("change", async (event) => {
   const file = event.target.files[0];
   if (file) {
-    showImage(); // Ensure image is visible
-    const imageURL = URL.createObjectURL(file);
-    avatarImg.src = imageURL;
-    // Close avatar controls after file is uploaded
-    avatarControls.classList.add("hidden");
-    avatarUpload.value = ""; // Clear the file input
+    try {
+      // Validate file type
+      if (!file.type.startsWith("image/")) {
+        alert("Please select a valid image file.");
+        return;
+      }
+
+      // Convert file to data URL (base64 encoded image URL)
+      const dataURL = await convertFileToDataURL(file);
+      updateAvatarURL(dataURL);
+
+      avatarUpload.value = ""; // Clear the file input
+    } catch (error) {
+      console.error("Error converting file to URL:", error);
+      alert("Error processing the image file.");
+    }
   }
 });
