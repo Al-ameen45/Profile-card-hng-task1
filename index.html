@@ -10,12 +10,17 @@
     <main>
       <article data-testid="test-profile-card" class="profile-card">
         <figure class="profile-avatar">
-          <img
-            id="user-avatar"
-            src="https://via.placeholder.com/150"
-            alt="User avatar"
-            data-testid="test-user-avatar"
-          />
+          <div class="avatar-wrapper">
+            <img
+              id="user-avatar"
+              src="https://via.placeholder.com/150"
+              alt="User avatar"
+              data-testid="test-user-avatar"
+            />
+            <div class="alt-text-fallback" style="display: none">
+              User avatar
+            </div>
+          </div>
           <figcaption>
             <button
               id="edit-avatar-btn"
