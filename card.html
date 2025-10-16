@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="card.css" />
+  </head>
+  <body>
+    <main>
+      <article data-testid="test-profile-card" class="profile-card">
+        <figure class="profile-avatar">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="User avatar"
+            data-testid="test-user-avatar"
+          />
+        </figure>
+
+        <div class="profile-content">
+          <header>
+            <h2 data-testid="test-user-name">Jane Doe</h2>
+          </header>
+
+          <p data-testid="test-user-bio">
+            A passionate frontend developer who loves crafting beautiful and
+            accessible user interfaces.
+          </p>
+
+          <p class="time">
+            Current Time (ms):
+            <span data-testid="test-user-time" id="user-time"></span>
+          </p>
+
+          <nav aria-label="Social links">
+            <ul data-testid="test-user-social-links" class="social-links">
+              <li>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-twitter"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-github"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-linkedin"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <section>
+            <h3>Hobbies</h3>
+            <ul data-testid="test-user-hobbies">
+              <li>Coding</li>
+              <li>Photography</li>
+              <li>Reading</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Dislikes</h3>
+            <ul data-testid="test-user-dislikes">
+              <li>Procrastination</li>
+              <li>Spam emails</li>
+              <li>Unclear documentation</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <script src="card.js"></script>
+  </body>
+</html>
