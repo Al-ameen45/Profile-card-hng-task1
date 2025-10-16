@@ -21,7 +21,7 @@ body {
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  max-width: 600px;
+  max-width: 650px;
   width: 90%;
   transition: transform 0.2s ease;
 }
@@ -41,6 +41,43 @@ body {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.edit-btn {
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.edit-btn:hover {
+  background-color: #005fcc;
+}
+
+.avatar-controls {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar-input,
+.avatar-upload {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  width: 70%;
+  max-width: 250px;
+}
+
+.hidden {
+  display: none;
 }
 
 .profile-content {

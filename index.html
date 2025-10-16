@@ -11,15 +11,42 @@
       <article data-testid="test-profile-card" class="profile-card">
         <figure class="profile-avatar">
           <img
+            id="user-avatar"
             src="https://via.placeholder.com/150"
             alt="User avatar"
             data-testid="test-user-avatar"
           />
+          <figcaption>
+            <button
+              id="edit-avatar-btn"
+              class="edit-btn"
+              aria-label="Edit avatar"
+            >
+              Edit Avatar
+            </button>
+
+            <div id="avatar-controls" class="avatar-controls hidden">
+              <input
+                type="url"
+                id="avatar-url"
+                placeholder="Paste image URL..."
+                aria-label="Avatar URL"
+                class="avatar-input"
+              />
+              <input
+                type="file"
+                id="avatar-upload"
+                accept="image/*"
+                aria-label="Upload avatar"
+                class="avatar-upload"
+              />
+            </div>
+          </figcaption>
         </figure>
 
         <div class="profile-content">
           <header>
-            <h2 data-testid="test-user-name">Jane Doe</h2>
+            <h2 data-testid="test-user-name">John Doe</h2>
           </header>
 
           <p data-testid="test-user-bio">
