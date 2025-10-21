@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html">Profile</a>
+      <a href="contact.html" aria-current="page">Contact Us</a>
+      <a href="about.html">About Me</a>
+    </nav>
+
+    <main data-testid="test-contact-page">
+      <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p class="contact-subtitle">Get in touch with me</p>
+      </div>
+
+      <div class="contact-container">
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="test-contact-name">Full Name</label>
+            <input
+              type="text"
+              id="test-contact-name"
+              data-testid="test-contact-name"
+              placeholder="Enter your full name"
+            />
+            <small
+              id="test-contact-error-name"
+              class="error-message"
+              data-testid="test-contact-error-name"
+            ></small>
+          </div>
+
+          <div class="form-group">
+            <label for="test-contact-email">Email</label>
+            <input
+              type="email"
+              id="test-contact-email"
+              data-testid="test-contact-email"
+              placeholder="name@example.com"
+            />
+            <small
+              id="test-contact-error-email"
+              class="error-message"
+              data-testid="test-contact-error-email"
+            ></small>
+          </div>
+
+          <div class="form-group">
+            <label for="test-contact-subject">Subject</label>
+            <input
+              type="text"
+              id="test-contact-subject"
+              data-testid="test-contact-subject"
+              placeholder="Subject"
+            />
+            <small
+              id="test-contact-error-subject"
+              class="error-message"
+              data-testid="test-contact-error-subject"
+            ></small>
+          </div>
+
+          <div class="form-group">
+            <label for="test-contact-message">Message</label>
+            <textarea
+              id="test-contact-message"
+              data-testid="test-contact-message"
+              placeholder="Type your message here..."
+            ></textarea>
+            <small
+              id="test-contact-error-message"
+              class="error-message"
+              data-testid="test-contact-error-message"
+            ></small>
+          </div>
+
+          <button
+            type="submit"
+            id="test-contact-submit"
+            data-testid="test-contact-submit"
+          >
+            Send Message
+          </button>
+
+          <p
+            id="test-contact-success"
+            class="success-message"
+            data-testid="test-contact-success"
+          ></p>
+        </form>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
